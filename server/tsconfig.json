@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // Where my TypeScript source code lives
+    "rootDir": "./src",
+    // Where tsc puts the compiled JavaScript
+    "outDir": "./dist",
+
+    // How imports/exports are emitted (follows "type" in package.json)
+    "module": "nodenext",
+    // JavaScript version to output (Node 24 supports the latest)
+    "target": "esnext",
+    // Load Node's type definitions (e.g. for process.env)
+    "types": ["node"],
+
+    // Strict type checking: catch mistakes before running the code
+    "strict": true,
+    // Only type-check my code, not the libraries (faster)
+    "skipLibCheck": true,
+    // Generate .map files so errors point to the .ts line, not the .js
+    "sourceMap": true
+  }
+}
