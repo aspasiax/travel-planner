@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 process.loadEnvFile();
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // Health check: lets us quickly verify that the server is running
 app.get('/api/health', (req, res) => {
