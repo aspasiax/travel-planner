@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectToDatabase } from './db';
 
 // Load variables from .env into process.env
 process.loadEnvFile();
@@ -18,12 +18,7 @@ app.get('/api/hello', (req, res) => {
 
 // Connect to the database first, then start the server
 async function start() {
-  const mongoUri = process.env.MONGODB_URI;
-  if (!mongoUri) {
-    throw new Error('MONGODB_URI is not defined in .env');
-  }
-
-  await mongoose.connect(mongoUri, { dbName: 'travel-planner' });
+  await connectToDatabase();
   console.log('Connected to MongoDB');
 
   app.listen(PORT, () => {
