@@ -1,5 +1,6 @@
 import express from 'express';
 import { connectToDatabase } from './db';
+import { tripsRouter } from './routes/trips';
 
 // Load variables from .env into process.env
 process.loadEnvFile();
@@ -15,6 +16,9 @@ app.get('/api/health', (req, res) => {
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from Travel Planner!' });
 });
+
+app.use('/api/trips', tripsRouter);
+
 
 // Connect to the database first, then start the server
 async function start() {
